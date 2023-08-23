@@ -1,0 +1,36 @@
+while wait() do
+for i,v in pairs(workspace["Zombie Storage"]:GetChildren()) do
+    if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+ spawn(function()
+local args = {
+    [1] = {
+        ["LaserProperties"] = {
+            [1] = {
+                [1] = Enum.Material.Plastic,
+                [2] = BrickColor.new(1031),
+                [3] = Vector3.new(-0.43642857670783997, -0.14980967342853546, 0.8871793746948242),
+                [4] = CFrame.new(228.03562927246094, 12.924692153930664, 2519.826904296875, -0.8973097205162048, -0.0661245733499527, 0.4364205300807953, 3.725290298461914e-09, 0.9887155294418335, 0.149805948138237, -0.44140154123306274, 0.13442233204841614, -0.8871839642524719),
+                [5] = Vector3.new(226.80160522460938, 12.501097679138184, 2522.33544921875),
+                [6] = 450,
+                [7] = true,
+                [8] = Vector3.new(-0.2447277158498764, -0.8858219385147095, -0.3942435681819916)
+            }
+        },
+        ["RealTool"] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
+        ["Tool"] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
+        ["HumanoidTables"] = {
+            [1] = {
+                ["HeadHits"] = 1,
+                ["THumanoid"] = v:FindFirstChild("Humanoid"),
+                ["BodyHits"] = 0
+            }
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("WeaponEvent"):FireServer(unpack(args))
+end)
+wait(0.2)
+end
+end
+end
